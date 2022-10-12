@@ -96,7 +96,10 @@
             let treasureRow = Math.floor(treasureLocation / 5);
             score = score + 2;
             document.getElementById("score").innerHTML = "Score is "+score;
-            if(treasureRow == rowlast){
+            if(lastCheck == treasureLocation){
+              document.getElementById("help").innerHTML = "Already won the game";
+            }
+            else if(treasureRow == rowlast){
                 if(collast < treasureCol){
                     document.getElementById("help").innerHTML = "right";
                 }

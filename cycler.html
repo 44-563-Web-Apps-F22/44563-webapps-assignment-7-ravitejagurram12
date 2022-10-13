@@ -41,7 +41,7 @@
 
         <button type="button" onclick="get()">Get</button>
 	    <button type="button" onclick="spin()">Spin</button>
-	
+        <button type="button" onclick="swap()">Swap</button>
 </body>
 <script>
 	function makeNewDiv(){
@@ -73,6 +73,21 @@
 			cyclerItems[cyclerItems.length-1].remove();
 			container.insertBefore(removedItem,container.firstChild);
 		}
+	}
+
+    function swap(){
+		var cyclerItems = document.getElementsByClassName("cycler");
+            var number1 = Math.random() * cyclerItems.length;
+            var target_class =  document.getElementById("target");
+            var number2 = Math.random() * cyclerItems.length;
+            var first = document.getElementsByClassName("cycler")[Math.floor(number1)];
+            var second = document.getElementsByClassName("cycler")[Math.floor(number2)];
+            if(cyclerItems.length > 1) {
+                var swap = first.innerHTML;
+                first.innerHTML = second.innerHTML;
+                console.log(first.innerHTML)
+                second.innerHTML = swap;
+            }
 	}
 </script>
 </html>	

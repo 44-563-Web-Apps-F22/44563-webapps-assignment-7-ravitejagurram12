@@ -28,12 +28,15 @@
       myTime = Date.now()
       console.log(myTime);
     }
-
-    function startTime(){
-      for(let i = 0; i <= 3; i++){
-        setTimeout(()=>{document.getElementById("countdown").innerHTML=i},(3-i)*1000);
+ 
+ function startTime(){
+      const  countDown = Math.random() * 9;
+      let value = Math.floor(countDown) + 2;
+      console.log(value);
+      for(let x = 0; x <= value; x++){
+        setTimeout(()=>{document.getElementById("countdown").innerHTML=x},(value-x)*1000);
       }
-
+      
       setTimeout(function(){
         if(myTime == undefined){
           document.getElementById("target").innerHTML = "Too Slow";

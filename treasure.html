@@ -20,7 +20,9 @@
     <div class="container" id="chests" style="background-color:aquamarine">Number of chests checked is zero.</div>
     <div class="container" id="score" style="background-color:aqua">Score is unknown.</div>
     <div class="container" id="help" style="background-color:blanchedalmond;;">Help report</div>
-    
+    <div>
+      <button type="button" class="btn btn-primary" onclick="newGame()">New Game</button>
+  </div> 
     <div class="container">
         <div class="image-row d-flex justify-content-center">
         <div><img id="id1" onclick="check(0)" width=110 height=110 src="closed.jpg"></div>
@@ -71,7 +73,7 @@
       let chestCount=0;
       let score=0;
       let lastCheck=12;
-      let treasureLocation=18;
+      let treasureLocation=Math.floor(Math.random()*24);
       function check(position){
         var a=ids[position]
         if(position == treasureLocation){ 
@@ -125,6 +127,23 @@
                     document.getElementById("help").innerHTML = "Sorry, no help available" ;
                 }
       }
+
+      function newGame() {
+            chestCount = 0
+            score = 0
+            treasureLocation = Math.floor(Math.random() * 24)
+            if (treasureLocation == 12)
+                treasureLocation = 12 + Math.floor(Math.random() * 12)
+
+            document.getElementById("chests").innerHTML = "Number of chests checked is zero."
+            document.getElementById("score").innerHTML = "Score is unknown."
+
+            for (var x = 0; x < 2; x++) {
+                if (x != 12)
+                    document.getElementById(ids[x]).src = "closed.jpg"
+            }
+        }
+    </script>
     </script>
     
     </body>
